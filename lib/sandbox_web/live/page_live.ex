@@ -37,7 +37,7 @@ defmodule SandboxWeb.PageLive do
   end
 
   defp validate(socket, params) do
-    # We have to merge in existing params that we saves as assigns,
+    # We have to merge in existing params that we save as assigns,
     # because validations with phx-focus don't get all form params passed along.
     params =
       socket.assigns.params
