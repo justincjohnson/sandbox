@@ -10,7 +10,7 @@ defmodule SandboxWeb.Form do
     :email
   ]
 
-  @required_fields [:first_name, :last_name]
+  @required_fields [:first_name, :last_name, :email]
 
   embedded_schema do
     field(:first_name, :string)

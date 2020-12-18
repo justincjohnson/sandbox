@@ -16,18 +16,28 @@ defmodule SandboxWeb.PageLive do
 
   @impl true
   def handle_event("validate-last-name", %{"value" => value}, socket) do
+    IO.inspect(socket.assigns.changeset, label: "validate-last-name")
     params = %{"last_name" => value}
     {:noreply, validate(socket, params)}
   end
 
   @impl true
+  def handle_event("validate-email", %{"value" => value}, socket) do
+    IO.inspect(socket.assigns.changeset, label: "validate-email")
+    params = %{"email" => value}
+    {:noreply, validate(socket, params)}
+  end
+
+  @impl true
   def handle_event("validate", %{"form" => form_params} = params, socket) do
-    IO.inspect(params, label: "validate form params")
+    IO.inspect(params, label: "validate")
     {:noreply, validate(socket, form_params)}
   end
 
   @impl true
   def handle_event("submit", params, socket) do
+    IO.inspect(params, label: "submit")
+
     socket =
       socket
       |> validate(params)

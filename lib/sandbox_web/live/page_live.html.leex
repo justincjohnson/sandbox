@@ -1,4 +1,4 @@
-<%= f = form_for @changeset, "#", [phx_change: :validate, phx_submit: :submit] %>
+<%= f = form_for @changeset, "#", [phx_submit: :submit] %>
   <div>
     <%= label f, :first_name, "First Name" %>
     <%= text_input f, :first_name, phx_focus: "validate-first-name", phx_debounce: "1000" %>
@@ -10,9 +10,9 @@
     <%= error_tag f, :last_name %>
   </div>
   <div>
-    <%= label f, :email, "Email", phx_debounce: "1000" %>
-    <%= text_input f, :email %>
+    <%= label f, :email, "Email" %>
+    <%= text_input f, :email, phx_focus: "validate-email", phx_debounce: "1000" %>
     <%= error_tag f, :email %>
   </div>
-  <button type="submit" phx-disable-with="Searching...">Submit</button>
+  <button type="submit" phx-disable-with="Submitting...">Submit</button>
 </form>
